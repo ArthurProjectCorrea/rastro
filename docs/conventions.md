@@ -10,7 +10,7 @@ Fonte única das regras. O objetivo é um protótipo **simples, rápido e consis
 ## 1. Estrutura
 
 ```
-mockup/
+docs/mockup/
 ├── index.html            índice das telas (lê screens.json)
 ├── serve.py              servidor local (os JSON não carregam por file://)
 ├── screens.json          registro: project + lista de screens (id, title, file, menu, description)
@@ -68,6 +68,6 @@ Toda tela que lista ou busca dados trata o caso vazio (`.empty` com `hidden`). D
 ## 8. Tela pronta quando
 
 1. `validate.py --all` passa.
-2. Aberta em `python3 mockup/serve.py`, carrega sem erro no console e sem banner vermelho.
+2. Aberta em `python3 docs/mockup/serve.py`, carrega sem erro no console e sem banner vermelho.
 3. Dá para chegar nela e sair dela pelos links.
 4. Parece da mesma família das outras (mesmos componentes, mesmos espaçamentos).

@@ -119,7 +119,7 @@ const Mock = (() => {
   async function mountLayout() {
     if (location.protocol === 'file:') {
       throw new Error(
-        'Abra o mockup por um servidor local: python3 mockup/serve.py (os JSON não carregam via file://).',
+        'Abra o mockup por um servidor local: python3 docs/mockup/serve.py (os JSON não carregam via file://).',
       );
     }
     const mode = document.body.dataset.layout;

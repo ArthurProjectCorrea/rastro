@@ -12,7 +12,7 @@ Names, identifiers and code comments are in English. Everything the user reads (
 
 ## 1. Check the state
 
-Read `docs/context.md` and `mockup/screens.json`.
+Read `docs/context.md` and `docs/mockup/screens.json`.
 
 - If the context is already filled in (no `NOT-FILLED` in the file) or `project` is not "Projeto Exemplo", **a project already exists here**. Warn the user and ask whether to start over (this deletes the current screens and tables) or use `/new-screen`. Continue only with explicit confirmation.
 
@@ -44,12 +44,12 @@ Ask whether it looks good. **Do not create anything before the go-ahead.** Apply
 
 ## 5. Prepare the mockup
 
-1. Keep the molds (do not delete them): `mkdir -p docs/templates/screens docs/templates/js`, move `mockup/screens/*.html` to `docs/templates/screens/` and `mockup/js/screens/*.js` to `docs/templates/js/`. Create `docs/templates/README.md` (2 lines, in pt-BR): they are mold screens (login, list, detail, form, list with count); copy them to `mockup/screens` and `mockup/js/screens`, the relative paths already work there.
-2. Data: delete `mockup/data/*.json` except `schema.json`; rewrite `schema.json` and create one JSON per approved table (realistic and small data, 3 to 10 rows, in Portuguese, consistent ids and keys).
-3. Reset `mockup/screens.json` to `{ "project": "<name>", "screens": [] }`.
-4. Visual: adjust **only** `mockup/css/tokens.css` (accent color and its variations) according to answer 6.
+1. Keep the molds (do not delete them): `mkdir -p docs/templates/screens docs/templates/js`, move `docs/mockup/screens/*.html` to `docs/templates/screens/` and `docs/mockup/js/screens/*.js` to `docs/templates/js/`. Create `docs/templates/README.md` (2 lines, in pt-BR): they are mold screens (login, list, detail, form, list with count); copy them to `docs/mockup/screens` and `docs/mockup/js/screens`, the relative paths already work there.
+2. Data: delete `docs/mockup/data/*.json` except `schema.json`; rewrite `schema.json` and create one JSON per approved table (realistic and small data, 3 to 10 rows, in Portuguese, consistent ids and keys).
+3. Reset `docs/mockup/screens.json` to `{ "project": "<name>", "screens": [] }`.
+4. Visual: adjust **only** `docs/mockup/css/tokens.css` (accent color and its variations) according to answer 6.
 5. Create the approved screens following the `new-screen` skill procedure, using the molds in `docs/templates/`. Login (or the start screen) first: the first screen registered in `screens.json` is the flow entry. For 3 or more independent screens, you may delegate to the `mockup-builder` agent.
 
 ## 6. Wrap up
 
-Run `python3 .claude/hooks/validate.py --all` and fix whatever it reports. Reply briefly in pt-BR: what was created, how to open it (`python3 mockup/serve.py`, then http://localhost:5173) and the open questions left in `docs/context.md`.
+Run `python3 .claude/hooks/validate.py --all` and fix whatever it reports. Reply briefly in pt-BR: what was created, how to open it (`python3 docs/mockup/serve.py`, then http://localhost:5173) and the open questions left in `docs/context.md`.

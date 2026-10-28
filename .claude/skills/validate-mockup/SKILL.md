@@ -20,4 +20,4 @@ allowed-tools: Bash(python3 .claude/hooks/validate.py *)
 - Is there a screen that looks different from the others (spacing, buttons, hand-made tables)?
 
 Reply briefly in Brazilian Portuguese (pt-BR): how many problems there were, what was fixed and what is left for the user to decide.
-To look at it in the browser: `python3 mockup/serve.py` and open http://localhost:5173.
+To look at it in the browser: `python3 docs/mockup/serve.py` and open http://localhost:5173.

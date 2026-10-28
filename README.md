@@ -31,7 +31,7 @@ Descrição curta do projeto (a preencher).
 | ----------------- | -------------------------------------------------- |
 | `.claude/`        | Agente, skills e hooks do Claude Code (kit mockup) |
 | `docs/`           | Contexto do produto e convenções do mockup         |
-| `mockup/`         | Protótipo HTML + CSS + JS + JSON                   |
+| `docs/mockup/`    | Protótipo HTML + CSS + JS + JSON                   |
 | `CONTRIBUTING.md` | Guia de contribuição e padrão de commits           |
 | `CLAUDE.md`       | Regras para o Claude Code                          |
 | `LICENSE`         | Licença MIT                                        |
@@ -44,29 +44,29 @@ Requisitos: Claude Code e Python 3.8+ (sem instalar pacotes). Se `python3` não 
 
 1. Rode `claude` na pasta do projeto.
 2. Digite `/new-mockup` (ou `/new-mockup Nome do produto`). Ele faz poucas perguntas, mostra as tabelas e telas que propõe, espera seu ok e só então cria.
-3. Para ver: `python3 mockup/serve.py` e abra http://localhost:5173 (não abre por duplo clique: os JSON precisam de servidor).
+3. Para ver: `python3 docs/mockup/serve.py` e abra http://localhost:5173 (não abre por duplo clique: os JSON precisam de servidor).
 
 | Quero                   | Faço                                                            |
 | ----------------------- | --------------------------------------------------------------- |
 | Nova tela               | `/new-screen lista de animais com filtro por lote`              |
 | Várias telas de uma vez | peça ao agente `mockup-builder`                                 |
 | Conferir consistência   | `/validate-mockup` ou `python3 .claude/hooks/validate.py --all` |
-| Mudar a cara do produto | editar só `mockup/css/tokens.css`                               |
+| Mudar a cara do produto | editar só `docs/mockup/css/tokens.css`                          |
 
 ### Como o mockup é organizado
 
 ```
-mockup/
-├── index.html        índice das telas
-├── screens.json      registro das telas (a primeira é a entrada do fluxo) e nome do projeto
-├── css/              tokens.css (único lugar de cores/espaços), base.css, components.css
-├── js/               app.js (infraestrutura), screens/<id>.js (um por tela)
-├── data/             schema.json + uma tabela por arquivo (.json), ligadas por <entity>_id
-└── screens/          uma página HTML por tela
 docs/
-├── context.md        o produto (preenchido pelo /new-mockup, carregado em toda sessão)
-├── conventions.md    as regras (fonte única)
-└── templates/        telas-molde guardadas após o /new-mockup
+├── context.md            o produto (preenchido pelo /new-mockup, carregado em toda sessão)
+├── conventions.md        as regras (fonte única)
+├── templates/            telas-molde guardadas após o /new-mockup
+└── mockup/
+    ├── index.html        índice das telas
+    ├── screens.json      registro das telas (a primeira é a entrada do fluxo) e nome do projeto
+    ├── css/              tokens.css (único lugar de cores/espaços), base.css, components.css
+    ├── js/               app.js (infraestrutura), screens/<id>.js (um por tela)
+    ├── data/             schema.json + uma tabela por arquivo (.json), ligadas por <entity>_id
+    └── screens/          uma página HTML por tela
 ```
 
 ### O que faz cada peça
@@ -75,7 +75,7 @@ docs/
 - **Agente `mockup-builder`**: constrói telas em contexto isolado, com o procedimento da `new-screen` embutido.
 - **Hooks** (`.claude/settings.json`):
   - início da sessão: resumo de telas e tabelas existentes;
-  - depois de editar arquivo em `mockup/`: confere as regras daquele arquivo (sem `style=`, sem cor fora do `tokens.css`, tabelas conforme o schema...);
+  - depois de editar arquivo em `docs/mockup/`: confere as regras daquele arquivo (sem `style=`, sem cor fora do `tokens.css`, tabelas conforme o schema...);
   - ao fim do turno: confere o conjunto (chaves estrangeiras, telas registradas, links) e bloqueia **uma vez** se algo estiver quebrado.
 
 ### Limites (de propósito)

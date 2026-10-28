@@ -35,7 +35,7 @@
   "permissions": {
     "allow": [
       "Bash(python3 .claude/hooks/validate.py *)",
-      "Bash(python3 mockup/serve.py *)"
+      "Bash(python3 docs/mockup/serve.py *)"
     ]
   }
 }

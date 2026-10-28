@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[2]
-MOCKUP = PROJECT / "mockup"
+MOCKUP = PROJECT / "docs" / "mockup"
 
 
 def read(path):
@@ -35,7 +35,7 @@ def main():
             parts.append(f"{name}({len(definition.get('columns', {}))} cols{'; ' + fks if fks else ''})")
         print("[mockup] Tables: " + ", ".join(parts))
     print("[mockup] Before creating/changing screens: read docs/conventions.md (imported in CLAUDE.md) and use /new-screen.")
-    print("[mockup] View in the browser: python3 mockup/serve.py -> http://localhost:5173")
+    print("[mockup] View in the browser: python3 docs/mockup/serve.py -> http://localhost:5173")
     print("[mockup] Reply to the user in Brazilian Portuguese (pt-BR).")
 
 

@@ -1,6 +1,6 @@
 ---
 name: mockup-builder
-description: Builds and adjusts mockup screens (HTML, CSS, JS and JSON tables) following the project conventions. Use to create one or several screens, change data or wire the flow between screens inside mockup/.
+description: Builds and adjusts mockup screens (HTML, CSS, JS and JSON tables) following the project conventions. Use to create one or several screens, change data or wire the flow between screens inside docs/mockup/.
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 skills:
@@ -13,7 +13,7 @@ All file names, identifiers, code comments and CSS classes are in English. Every
 
 ## Before writing anything
 
-Read, in this order: `docs/context.md`, `docs/conventions.md`, `mockup/data/schema.json`, `mockup/screens.json` and **one existing screen of the same type** (list, detail, form, dashboard) with its JS. If `mockup/screens/` has no screens of that type yet, use `docs/templates/`. Use it as the mold: do not invent a new structure.
+Read, in this order: `docs/context.md`, `docs/conventions.md`, `docs/mockup/data/schema.json`, `docs/mockup/screens.json` and **one existing screen of the same type** (list, detail, form, dashboard) with its JS. If `docs/mockup/screens/` has no screens of that type yet, use `docs/templates/`. Use it as the mold: do not invent a new structure.
 
 ## How to decide
 

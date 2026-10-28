@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Local mockup server (standard library only).
 
-  python3 mockup/serve.py          # http://localhost:5173
-  python3 mockup/serve.py 8000     # another port
+  python3 docs/mockup/serve.py          # http://localhost:5173
+  python3 docs/mockup/serve.py 8000     # another port
 
 Required because the JSON files in data/ do not load when the page is opened via file://.
 """

@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[2]
-MOCKUP = PROJECT / "mockup"
+MOCKUP = PROJECT / "docs" / "mockup"
 MARKER = PROJECT / ".claude" / ".mockup-changed"
 TYPES = {"integer", "number", "text", "date", "boolean"}
 LAYOUTS = {"app", "center"}
@@ -78,10 +78,10 @@ def check_schema(errors):
         return None
     tables = schema.get("tables")
     if not isinstance(tables, dict) or not tables:
-        errors.append('mockup/data/schema.json: missing the "tables" object')
+        errors.append('docs/mockup/data/schema.json: missing the "tables" object')
         return None
     for name, definition in tables.items():
-        where = f"mockup/data/schema.json (table {name})"
+        where = f"docs/mockup/data/schema.json (table {name})"
         columns = definition.get("columns") if isinstance(definition, dict) else None
         if not isinstance(columns, dict) or columns.get("id") != "integer":
             errors.append(f'{where}: "columns" must be an object and have "id": "integer"')
@@ -100,7 +100,7 @@ def check_schema(errors):
 
 
 def check_rows(name, definition, rows, errors):
-    file = f"mockup/data/{name}.json"
+    file = f"docs/mockup/data/{name}.json"
     if not isinstance(rows, list):
         errors.append(f"{file}: must be a list of objects (one row per record)")
         return
@@ -131,7 +131,7 @@ def check_data(tables, errors):
     for name, definition in tables.items():
         file = folder / f"{name}.json"
         if not file.exists():
-            errors.append(f"mockup/data/{name}.json: table is in the schema but the file does not exist")
+            errors.append(f"docs/mockup/data/{name}.json: table is in the schema but the file does not exist")
             continue
         rows = read_json(file, errors)
         if rows is None:
@@ -149,7 +149,7 @@ def check_data(tables, errors):
             target_ids = {r.get("id") for r in content[target] if isinstance(r, dict)}
             for i, row in enumerate(content[name], 1):
                 if isinstance(row, dict) and row.get(column) is not None and row[column] not in target_ids:
-                    errors.append(f"mockup/data/{name}.json: row {i}: {column}={row[column]} does not exist in {target}")
+                    errors.append(f"docs/mockup/data/{name}.json: row {i}: {column}={row[column]} does not exist in {target}")
 
 
 # ---------------------------------------------------------------- html
@@ -160,14 +160,14 @@ def check_html(path, errors):
     text = read_text(path)
     where = rel(path)
     if re.search(r"<style\b", text, re.I):
-        errors.append(f"{where}: CSS inside the HTML (<style>): move it to mockup/css/")
+        errors.append(f"{where}: CSS inside the HTML (<style>): move it to docs/mockup/css/")
     if re.search(r"\sstyle\s*=", text, re.I):
         errors.append(f"{where}: style= attribute: use the classes in components.css (or create one there)")
     if re.search(r"\son(click|change|submit|input|load|keyup|keydown|focus|blur|mouse\w+)\s*=", text, re.I):
-        errors.append(f'{where}: inline handler (onclick=...): use data-action="toast" or mockup/js/screens/')
+        errors.append(f'{where}: inline handler (onclick=...): use data-action="toast" or docs/mockup/js/screens/')
     for m in re.finditer(r"<script\b([^>]*)>(.*?)</script>", text, re.I | re.S):
         if "src=" not in m.group(1).lower() or m.group(2).strip():
-            errors.append(f"{where}: <script> with code inside the HTML: move it to mockup/js/screens/")
+            errors.append(f"{where}: <script> with code inside the HTML: move it to docs/mockup/js/screens/")
     for css in REQUIRED_CSS:
         if f"css/{css}" not in text:
             errors.append(f"{where}: missing <link> to css/{css}")
@@ -228,7 +228,7 @@ def check_js(path, tables, errors):
         if re.search(r"\b(localStorage|sessionStorage)\b", code):
             errors.append(f"{where}: use Mock.userId()/Mock.signIn() instead of accessing storage directly")
         if re.search(r"\[\s*\{\s*['\"]?id['\"]?\s*:", code):
-            errors.append(f"{where}: hardcoded data inside JS: move it to mockup/data/ and declare it in schema.json")
+            errors.append(f"{where}: hardcoded data inside JS: move it to docs/mockup/data/ and declare it in schema.json")
     if tables is not None:
         for m in re.finditer(r"Mock\.tables\(([^)]*)\)", code):
             for name in re.findall(r"""["']([^"']+)["']""", m.group(1)):
@@ -243,28 +243,28 @@ def check_registry(errors):
         return
     screens = registry.get("screens") if isinstance(registry, dict) else None
     if not isinstance(screens, list) or not registry.get("project"):
-        errors.append('mockup/screens.json: needs "project" (text) and "screens" (list)')
+        errors.append('docs/mockup/screens.json: needs "project" (text) and "screens" (list)')
         return
     ids, files = set(), set()
     for s in screens:
         missing = [c for c in ("id", "title", "file") if not isinstance(s, dict) or c not in s]
         if missing:
-            errors.append(f"mockup/screens.json: screen without {missing}: {s}")
+            errors.append(f"docs/mockup/screens.json: screen without {missing}: {s}")
             continue
         if s["id"] in ids:
-            errors.append(f'mockup/screens.json: id "{s["id"]}" repeated')
+            errors.append(f'docs/mockup/screens.json: id "{s["id"]}" repeated')
         ids.add(s["id"])
         files.add(s["file"])
         file = MOCKUP / s["file"]
         if not file.exists():
-            errors.append(f'mockup/screens.json: screen "{s["id"]}" points to {s["file"]}, which does not exist')
+            errors.append(f'docs/mockup/screens.json: screen "{s["id"]}" points to {s["file"]}, which does not exist')
             continue
         m = re.search(r'data-screen\s*=\s*["\']([^"\']*)["\']', read_text(file))
         if not m or m.group(1) != s["id"]:
             errors.append(f'{rel(file)}: expected <body data-screen="{s["id"]}"> (same as the id in screens.json)')
     for file in sorted((MOCKUP / "screens").glob("*.html")):
         if f"screens/{file.name}" not in files:
-            errors.append(f"{rel(file)}: screen not registered in mockup/screens.json")
+            errors.append(f"{rel(file)}: screen not registered in docs/mockup/screens.json")
 
 
 # ---------------------------------------------------------------- orchestration
