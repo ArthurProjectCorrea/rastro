@@ -6,8 +6,16 @@
 
 ## Produto
 
-- Nome:
-- Em uma frase, o que é:
+- Nome: Rastro (nome do repositório)
+- Em uma frase, o que é: registro e consulta confiável do histórico de cada animal de uma criação.
+
+## Objetivo
+
+Registrar e consultar o histórico de cada animal de uma criação de forma confiável, para saber de onde ele veio, por onde passou, o que aconteceu com ele e com quem se relaciona (pais, crias, animais que conviveram com ele).
+
+## Problema
+
+Falta um jeito simples de manter o histórico completo de cada animal e de ligar um animal aos outros e aos lugares por onde passou. Sem isso, perguntas básicas ficam sem resposta segura: de onde veio, onde esteve, com quem teve contato, o que foi feito com ele. Sem resposta segura, também não há como comprovar essas informações quando alguém exigir.
 
 ## Quem usa e onde
 

@@ -1,6 +1,8 @@
 # Rastro
 
-Descrição curta do projeto (a preencher).
+Registro e consulta confiável do histórico de cada animal de uma criação: de onde veio, por onde passou, o que aconteceu com ele e com quem se relaciona (pais, crias e animais que conviveram com ele).
+
+O contexto completo do produto está em [docs/context.md](docs/context.md).
 
 ## Primeiros passos
 
