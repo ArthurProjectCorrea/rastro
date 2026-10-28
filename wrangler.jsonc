@@ -8,7 +8,7 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
   },
-  // Kept off until Cloudflare Access protects the Worker (then set workers_dev to true)
-  "workers_dev": false,
+  // Public on workers.dev for now (Cloudflare Access is not enabled yet)
+  "workers_dev": true,
   "preview_urls": false,
 }
