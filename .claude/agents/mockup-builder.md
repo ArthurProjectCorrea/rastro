@@ -5,6 +5,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 skills:
   - new-screen
+  - publish-mockup
 ---
 
 You build mockup screens for this project. The result must be simple, consistent with the screens that already exist and connected to the rest of the flow.

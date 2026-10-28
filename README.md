@@ -48,12 +48,13 @@ Requisitos: Claude Code e Python 3.8+ (sem instalar pacotes). Se `python3` não 
 2. Digite `/new-mockup` (ou `/new-mockup Nome do produto`). Ele faz poucas perguntas, mostra as tabelas e telas que propõe, espera seu ok e só então cria.
 3. Para ver: `python3 docs/mockup/serve.py` e abra http://localhost:5173 (não abre por duplo clique: os JSON precisam de servidor).
 
-| Quero                   | Faço                                                            |
-| ----------------------- | --------------------------------------------------------------- |
-| Nova tela               | `/new-screen lista de animais com filtro por lote`              |
-| Várias telas de uma vez | peça ao agente `mockup-builder`                                 |
-| Conferir consistência   | `/validate-mockup` ou `python3 .claude/hooks/validate.py --all` |
-| Mudar a cara do produto | editar só `docs/mockup/css/tokens.css`                          |
+| Quero                   | Faço                                                             |
+| ----------------------- | ---------------------------------------------------------------- |
+| Nova tela               | `/new-screen lista de animais com filtro por lote`               |
+| Várias telas de uma vez | peça ao agente `mockup-builder`                                  |
+| Conferir consistência   | `/validate-mockup` ou `python3 .claude/hooks/validate.py --all`  |
+| Mudar a cara do produto | editar só `docs/mockup/css/tokens.css`                           |
+| Publicar o mockup       | `/publish-mockup` (Cloudflare Workers, a cada push na `develop`) |
 
 ### Como o mockup é organizado
 

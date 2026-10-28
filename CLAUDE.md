@@ -30,6 +30,7 @@ Este projeto produz **protótipos HTML simples** (HTML + CSS + JS + JSON) para v
 ### Como trabalhar
 
 - Projeto novo: `/new-mockup`. Tela nova: `/new-screen <o que ela mostra>`. Conferir tudo: `/validate-mockup`.
+- Publicar o mockup online (Cloudflare Workers): `/publish-mockup`.
 - Para várias telas independentes, delegue ao agente `mockup-builder`.
 - Ver no navegador: `python3 docs/mockup/serve.py` e abrir http://localhost:5173 (precisa de servidor; `file://` não carrega os JSON).
 - Os hooks já validam sozinhos: após editar arquivos em `docs/mockup/` (regras de cada arquivo) e ao fim do turno (consistência geral). Se um hook reportar erro, corrija na origem; não desative a regra.
