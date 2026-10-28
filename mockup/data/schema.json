@@ -1,0 +1,46 @@
+{
+  "tables": {
+    "users": {
+      "description": "Quem usa o sistema (a sessão simulada escolhe um destes)",
+      "columns": {
+        "id": "integer",
+        "name": "text",
+        "email": "text",
+        "role": "text"
+      },
+      "fk": {}
+    },
+    "customers": {
+      "description": "Quem faz os pedidos",
+      "columns": {
+        "id": "integer",
+        "name": "text",
+        "city": "text",
+        "phone": "text"
+      },
+      "fk": {}
+    },
+    "order_statuses": {
+      "description": "Tabela de domínio: situações possíveis de um pedido. 'tone' define a cor do badge (ok, warning, error, neutral)",
+      "columns": { "id": "integer", "name": "text", "tone": "text" },
+      "fk": {}
+    },
+    "orders": {
+      "description": "Pedidos feitos por clientes e atendidos por um usuário",
+      "columns": {
+        "id": "integer",
+        "customer_id": "integer",
+        "assignee_id": "integer",
+        "status_id": "integer",
+        "amount": "number",
+        "created_at": "date",
+        "description": "text?"
+      },
+      "fk": {
+        "customer_id": "customers",
+        "assignee_id": "users",
+        "status_id": "order_statuses"
+      }
+    }
+  }
+}

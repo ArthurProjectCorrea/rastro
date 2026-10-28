@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "customer_id": 1,
+    "assignee_id": 2,
+    "status_id": 3,
+    "amount": 1250.0,
+    "created_at": "2026-10-02",
+    "description": "Reforma do balcão de atendimento"
+  },
+  {
+    "id": 2,
+    "customer_id": 2,
+    "assignee_id": 3,
+    "status_id": 2,
+    "amount": 4890.5,
+    "created_at": "2026-10-05",
+    "description": "Instalação de câmeras no estoque"
+  },
+  {
+    "id": 3,
+    "customer_id": 3,
+    "assignee_id": 2,
+    "status_id": 1,
+    "amount": 760.0,
+    "created_at": "2026-10-09",
+    "description": "Troca de iluminação da oficina"
+  },
+  {
+    "id": 4,
+    "customer_id": 1,
+    "assignee_id": 1,
+    "status_id": 2,
+    "amount": 2300.0,
+    "created_at": "2026-10-12",
+    "description": "Novo forno e instalação elétrica"
+  },
+  {
+    "id": 5,
+    "customer_id": 4,
+    "assignee_id": 3,
+    "status_id": 4,
+    "amount": 9800.0,
+    "created_at": "2026-10-14",
+    "description": null
+  },
+  {
+    "id": 6,
+    "customer_id": 5,
+    "assignee_id": 2,
+    "status_id": 1,
+    "amount": 1520.75,
+    "created_at": "2026-10-20",
+    "description": "Pintura da sala de aula 3"
+  },
+  {
+    "id": 7,
+    "customer_id": 3,
+    "assignee_id": 1,
+    "status_id": 3,
+    "amount": 430.0,
+    "created_at": "2026-10-22",
+    "description": "Revisão do compressor"
+  },
+  {
+    "id": 8,
+    "customer_id": 2,
+    "assignee_id": 2,
+    "status_id": 1,
+    "amount": 3100.0,
+    "created_at": "2026-10-26",
+    "description": "Prateleiras novas para o corredor 4"
+  }
+]

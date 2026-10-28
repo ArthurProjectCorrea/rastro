@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+  </head>
+  <body data-screen="orders" data-layout="app">
+    <main class="content">
+      <div class="page-header">
+        <h2 class="page-header__title">Lista de pedidos</h2>
+        <label class="field">
+          <select
+            class="field__control"
+            id="status-filter"
+            aria-label="Filtrar por status"
+          ></select>
+        </label>
+        <a class="button button--primary" href="order-new.html">Novo pedido</a>
+      </div>
+
+      <p class="muted" id="customer-filter" hidden></p>
+
+      <div class="card card--flush">
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Cliente</th>
+                <th>Responsável</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th class="table__num">Valor</th>
+              </tr>
+            </thead>
+            <tbody id="list"></tbody>
+          </table>
+        </div>
+        <p class="empty" id="empty" hidden>Nenhum pedido encontrado.</p>
+      </div>
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../js/screens/orders.js"></script>
+  </body>
+</html>

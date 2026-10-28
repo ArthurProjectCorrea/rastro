@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pedido</title>
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+  </head>
+  <body data-screen="order" data-layout="app">
+    <main class="content">
+      <a href="orders.html">← Voltar para pedidos</a>
+
+      <p class="empty" id="not-found" hidden>Pedido não encontrado.</p>
+
+      <div class="grid" id="order-content" hidden>
+        <section class="card stack">
+          <h3 class="card__title">Pedido <span id="number"></span></h3>
+          <dl class="detail" id="order-detail"></dl>
+        </section>
+
+        <section class="card stack">
+          <h3 class="card__title">Cliente</h3>
+          <dl class="detail" id="customer-detail"></dl>
+          <div class="row">
+            <a class="button" id="customer-orders" href="orders.html"
+              >Ver pedidos do cliente</a
+            >
+          </div>
+        </section>
+      </div>
+
+      <div class="row" id="actions" hidden>
+        <button
+          class="button button--primary"
+          type="button"
+          data-action="toast"
+          data-message="Pedido marcado como entregue (simulado)"
+          data-goto="orders.html"
+        >
+          Marcar como entregue
+        </button>
+        <button
+          class="button button--danger"
+          type="button"
+          data-action="toast"
+          data-message="Pedido cancelado (simulado)"
+          data-goto="orders.html"
+        >
+          Cancelar pedido
+        </button>
+      </div>
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../js/screens/order.js"></script>
+  </body>
+</html>

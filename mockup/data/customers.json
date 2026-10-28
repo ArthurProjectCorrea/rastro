@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Padaria Estrela",
+    "city": "Cuiabá",
+    "phone": "(65) 90000-0001"
+  },
+  {
+    "id": 2,
+    "name": "Mercado Bom Preço",
+    "city": "Várzea Grande",
+    "phone": "(65) 90000-0002"
+  },
+  {
+    "id": 3,
+    "name": "Oficina Tigre",
+    "city": "Cuiabá",
+    "phone": "(65) 90000-0003"
+  },
+  {
+    "id": 4,
+    "name": "Clínica Vida Plena",
+    "city": "Rondonópolis",
+    "phone": "(66) 90000-0004"
+  },
+  {
+    "id": 5,
+    "name": "Escola Pequeno Passo",
+    "city": "Cuiabá",
+    "phone": "(65) 90000-0005"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Aberto", "tone": "neutral" },
+  { "id": 2, "name": "Em andamento", "tone": "warning" },
+  { "id": 3, "name": "Entregue", "tone": "ok" },
+  { "id": 4, "name": "Cancelado", "tone": "error" }
+]

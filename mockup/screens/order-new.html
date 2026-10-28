@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Novo pedido</title>
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+  </head>
+  <body data-screen="order-new" data-layout="app">
+    <main class="content">
+      <a href="orders.html">← Voltar para pedidos</a>
+
+      <form class="card stack">
+        <h3 class="card__title">Dados do pedido</h3>
+
+        <label class="field">
+          <span class="field__label">Cliente</span>
+          <select class="field__control" id="customer"></select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Responsável</span>
+          <select class="field__control" id="assignee"></select>
+          <span class="field__help">Começa com o usuário que está logado.</span>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Valor (R$)</span>
+          <input
+            class="field__control"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="0,00"
+          />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Descrição</span>
+          <textarea
+            class="field__control"
+            rows="3"
+            placeholder="O que precisa ser feito?"
+          ></textarea>
+        </label>
+
+        <div class="row">
+          <button
+            class="button button--primary"
+            type="button"
+            data-action="toast"
+            data-message="Pedido salvo (simulado, nada é gravado)"
+            data-goto="orders.html"
+          >
+            Salvar
+          </button>
+          <a class="button" href="orders.html">Cancelar</a>
+        </div>
+      </form>
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../js/screens/order-new.js"></script>
+  </body>
+</html>

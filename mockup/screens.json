@@ -1,0 +1,40 @@
+{
+  "project": "Projeto Exemplo",
+  "screens": [
+    {
+      "id": "login",
+      "title": "Entrar",
+      "file": "screens/login.html",
+      "menu": false,
+      "description": "Escolha de usuário (simula o login, sem senha)"
+    },
+    {
+      "id": "orders",
+      "title": "Pedidos",
+      "file": "screens/orders.html",
+      "menu": true,
+      "description": "Lista com filtro por status; aceita ?customer=ID"
+    },
+    {
+      "id": "order",
+      "title": "Pedido",
+      "file": "screens/order.html",
+      "menu": false,
+      "description": "Detalhe de um pedido; recebe ?id=ID"
+    },
+    {
+      "id": "order-new",
+      "title": "Novo pedido",
+      "file": "screens/order-new.html",
+      "menu": false,
+      "description": "Formulário (não grava; mostra aviso e volta à lista)"
+    },
+    {
+      "id": "customers",
+      "title": "Clientes",
+      "file": "screens/customers.html",
+      "menu": true,
+      "description": "Lista de clientes com total de pedidos; leva a orders.html?customer=ID"
+    }
+  ]
+}

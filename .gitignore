@@ -1,3 +1,6 @@
 node_modules/
 .env
 .DS_Store
+.claude/.mockup-changed
+.claude/settings.local.json
+__pycache__/
