@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "rastro-mockup",
+  "compatibility_date": "2026-10-01",
+  // Static assets only: nothing outside docs/mockup is ever uploaded
+  "assets": {
+    "directory": "./docs/mockup",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none",
+  },
+  // Kept off until Cloudflare Access protects the Worker (then set workers_dev to true)
+  "workers_dev": false,
+  "preview_urls": false,
+}
